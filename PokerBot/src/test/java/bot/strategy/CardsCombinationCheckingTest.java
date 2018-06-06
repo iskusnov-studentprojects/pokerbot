@@ -4,37 +4,20 @@ import bot.data.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Queue;
-
 import static org.junit.Assert.*;
 
 /**
  * Created by Sergey on 01.06.2018.
  */
-public class BaseStrategyTest {
-    BaseStrategy object;
+public class CardsCombinationCheckingTest {
+    CardsCombinationChecking object;
 
     @Before
     public void setUp() throws Exception {
-        object = new BaseStrategy() {
+        object = new CardsCombinationChecking() {
             @Override
-            public void setValues(Player[] players, PublicState state) {
-
-            }
-
-            @Override
-            public void submitActions(Queue<Action> actions) {
-
-            }
-
-            @Override
-            public Action makeDecision() {
-                return null;
-            }
-
-            @Override
-            public void updatePublicState(Queue<Card> cards) {
-
+            public int hashCode() {
+                return super.hashCode();
             }
         };
     }
@@ -157,5 +140,19 @@ public class BaseStrategyTest {
                         new Card(3, CardSuit.Spades)
                 };
         assertEquals(5, object.findCombination(hand, table));
+    }
+
+    @Test
+    public void justTest() throws Exception{
+        Card[] hand1 = {new Card(4, CardSuit.Clubs), new Card(6, CardSuit.Hearts)},
+                hand2 = {new Card(4, CardSuit.Hearts), new Card(3, CardSuit.Hearts)},
+                table = {new Card(5, CardSuit.Spades),
+                        new Card(9, CardSuit.Diamonds),
+                        new Card(5, CardSuit.Diamonds),
+                        new Card(12, CardSuit.Spades),
+                        new Card(8, CardSuit.Diamonds)
+                };
+        int comb1 = object.findCombination(hand1, table);
+        int comb2 = object.findCombination(hand2, table);
     }
 }

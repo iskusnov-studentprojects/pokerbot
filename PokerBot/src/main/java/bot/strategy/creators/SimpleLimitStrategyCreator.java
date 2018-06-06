@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SimpleLimitStrategyCreator implements IStrategyCreator{
 
-    public IBotStrategy create(PublicState publicState, List<Player> players) {
-        return new SimpleLimitStrategy(publicState, players);
+    public IBotStrategy create(Player player, PublicState publicState, List<Player> players) {
+        return new SimpleLimitStrategy(player, publicState, players);
     }
 }

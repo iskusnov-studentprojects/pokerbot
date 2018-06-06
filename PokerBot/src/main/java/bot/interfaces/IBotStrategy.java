@@ -11,5 +11,7 @@ public interface IBotStrategy {
     void setValues(Player[] players, PublicState state);
     void submitActions(Queue<Action> actions);
     Action makeDecision();
-    void updatePublicState(Queue<Card> cards);
+    void updateCards(Card[] cards);
+    void updateBank(int bank);
+    void updateStage(int stage);
 }

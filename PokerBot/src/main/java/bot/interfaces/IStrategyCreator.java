@@ -6,5 +6,5 @@ import bot.data.PublicState;
 import java.util.List;
 
 public interface IStrategyCreator {
-    IBotStrategy create(PublicState publicState, List<Player> players);
+    IBotStrategy create(Player player, PublicState publicState, List<Player> enemies);
 }
